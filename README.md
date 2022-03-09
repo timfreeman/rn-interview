@@ -1,10 +1,21 @@
 # React Native Developer questions
 
-## Navigation
+### 1. State vs Props
+What is the difference between React components props and state ?<br />
+What are their purposes ?
 
+### 2. OS specific implementation
+Name all possible methods to implement OS specific code in React Native
+
+### 3. useCallback
+What is `useCallback` hook used for ? Explain how it works
+
+### 4. Components rendering
+Name all possible ways to re-render component
+
+### 5. Navigation
 `screen.tsx`
-
-```ts
+```tsx
 import React, { useCallback } from 'react'
 import { StackScreenProps } from '@react-navigation/stack'
 
@@ -31,11 +42,9 @@ function TestScreen({ isFirstStep, navigation }: Props) {
 }
 
 export default TestScreen
-
 ```
 `navigator.tsx`
-
-```ts
+```tsx
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 
@@ -50,7 +59,9 @@ function TestNavigator() {
       <Stack.Screen name="Route.FirstStep">
         {(props) => <TestScreen {...props} isFirstStep />}
       </Stack.Screen>
-      <Stack.Screen name="Route.SecondStep">{(props) => <TestScreen {...props} />}</Stack.Screen>
+      <Stack.Screen name="Route.SecondStep">
+        {(props) => <TestScreen {...props} />}
+      </Stack.Screen>
       <Stack.Screen name="Route.TestStepsFinish">
         {(props) => <TestFinishScreen {...props} />}
       </Stack.Screen>
@@ -59,30 +70,29 @@ function TestNavigator() {
 }
 
 export default TestNavigator
-
 ```
 
-## styling
+### 6. Styling
 `styles.ts`
 ```ts
 import styled from 'styled-components/native'
 
-export const Content = styled.View`
+export const Container = styled.View`
   margin-top: 16px;
 `
 ```
 `index.tsx`
-```ts
+```tsx
 import React from 'react'
 import { Text } from 'react-native'
 
-import { Content } from './styles'
+import { Container } from './styles'
 
 function TestComponent() {
   return (
-    <Content>
+    <Container>
       <Text>Something</Text>
-    </Content>
+    </Container>
   )
 }
 
