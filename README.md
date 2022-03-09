@@ -13,7 +13,9 @@ What is `useCallback` hook used for ? Explain how it works
 ### 4. Components rendering
 Name all possible ways to re-render component
 
-### 5. Navigation
+### 5. Functional components lifecycle
+
+### 6. Navigation
 `screen.tsx`
 ```tsx
 import React, { useCallback } from 'react'
@@ -72,7 +74,7 @@ function TestNavigator() {
 export default TestNavigator
 ```
 
-### 6. Styling
+### 7. Styling
 `styles.ts`
 ```ts
 import styled from 'styled-components/native'
